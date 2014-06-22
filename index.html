@@ -52,27 +52,28 @@
 
 			for (var i = 1; i < dataset.length; i++) {
 				for (var j = 0; j < 24; j++) {		
-				rectangles.attr("y", 25+i*3-0.5)
-					.attr("x", function(d){
-						return 60+25*j;
-					}
-					.attr("width", 24)
-					.attr("height", 2)
-					.attr("opacity", function(dataset){
-						var hour_value = Math.abs(dataset[i][j+3]);
-						return color_scale(hour_value);
-					})
-					.attr("fill", function(dataset){
-						var hour_value = dataset[i][j+3];
-						if (hour_value > 0){
-							return "rgb(255, 102, 0)"
+					rectangles.attr("y", 25+i*3-0.5)
+						.attr("x", function(d){
+							return 60+25*j;
 						}
-						else{
-							return "rgb(0, 255, 255)"
-						};
-					});
+						.attr("width", 24)
+						.attr("height", 2)
+						.attr("opacity", function(dataset){
+							var hour_value = Math.abs(dataset[i][j+3]);
+							return color_scale(hour_value);
+						})
+						.attr("fill", function(dataset){
+							var hour_value = dataset[i][j+3];
+							if (hour_value > 0){
+								return "rgb(255, 102, 0)"
+							}
+							else{
+								return "rgb(0, 255, 255)"
+							};
+						});
 				};
 			};
+		};
 
 			/*rectangles.attr("y", function(d,i){
 				return 25+i*3-0.5;
