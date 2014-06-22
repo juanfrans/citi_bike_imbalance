@@ -52,11 +52,7 @@
 			dataset = data;
 			console.log(dataset);
 
-
-
-
-
-			d3.select("body").selectAll("p")
+			d3.select("body").selectAll("div")
 				.data(dataset)
 				.enter()
 				.append("div")
@@ -64,9 +60,6 @@
 				.style("height", function(d["AM_PK"]){
 					var barHeight = abs(d);
 					return barHeight + "px";
-				});
-				.text(function(d){
-					return "Citi Bike Station: " + d["name"];
 				});
 		});
 
