@@ -32,29 +32,17 @@
 
 
 
-		/*
-		d3.csv("data/Oct_Balance_Hour.csv", function(data){
-			dataset = data.map(function(d){
-				return [d["name"], +d["latitude"], +d["longitude"]];
-			})
-			console.log(dataset[0]);
+		
+		d3.csv.parseRows("data/Oct_Balance_Hour.csv", function(data){
+			dataset = data;
+			console.log(dataset);
 		});
-		*/
+		
 
 
 		d3.csv("data/Oct_Balance_Hour.csv", function(data){
 			dataset = data;
-			console.log(dataset);
-
-			/*d3.select("body").selectAll("div")
-				.data(dataset)
-				.enter()
-				.append("div")
-				.attr("class", "bar")
-				.style("background-color", function(d){
-					var color = Math.abs(d["AM_PK"]);
-					return "rgb("+color+" , 100, 100)";
-				});*/
+			//console.log(dataset);
 
 			var svg = d3.select("body")
 				.append("svg")
