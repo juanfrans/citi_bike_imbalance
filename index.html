@@ -55,7 +55,7 @@
 					rectangles
 						.attr("y", 25+i*3-0.5)
 
-						.attr("x", function(dataset){
+						.attr("x", function(d){
 							return 60+25*j;
 						})
 
@@ -63,12 +63,12 @@
 
 						.attr("height", 2)
 
-						.attr("opacity", function(dataset){
+						.attr("opacity", function(d){
 							var hour_value = Math.abs(dataset[i][j]);
 							return color_scale(hour_value);
 						})
 
-						.attr("fill", function(dataset){
+						.attr("fill", function(d){
 							var hour_value = dataset[i][j];
 							if (hour_value > 0){
 								return "rgb(255, 102, 0)"
