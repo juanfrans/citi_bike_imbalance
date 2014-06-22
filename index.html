@@ -50,7 +50,7 @@
 				.domain([0, 200])
 				.range([0.05, 1]);
 
-			for (var i = 1; i < 331; i++) {
+			/*for (var i = 1; i < 331; i++) {
 				for (var j = 3; j < 27; j++) {		
 					rectangles
 						.attr("y", 25+i*3-0.5)
@@ -63,7 +63,7 @@
 
 						.attr("fill", "rgb(153,153,153")
 
-						/*.attr("opacity", function(d){
+						.attr("opacity", function(d){
 							var hour_value = Math.abs(dataset[i][j]);
 							return color_scale(hour_value);
 						})
@@ -76,11 +76,11 @@
 							else{
 								return "rgb(0, 255, 255)"
 							};
-						})*/
+						})
 				}
-			};
+			};*/
 
-			/*rectangles.attr("y", function(d,i){
+			rectangles.attr("y", function(d,i){
 				return 25+i*3-0.5;
 				})
 				.attr("x", 60+25)
@@ -98,7 +98,7 @@
 					else{
 						return "rgb(0, 255, 255)"
 					};
-				});*/
+				});
 
 			svg.selectAll("text")
 				.data(dataset)
