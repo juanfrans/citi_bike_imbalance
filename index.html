@@ -59,9 +59,8 @@
 				.append("div")
 				.attr("class", "bar")
 				.style("height", function(d){
-					var barHeight = d["AM_PK"];
-					var barHeight2 = abs(barHeight);
-					return barHeight2 + "px";
+					var barHeight = Math.abs(d["AM_PK"]);
+					return barHeight + "px";
 				});
 		});
 
