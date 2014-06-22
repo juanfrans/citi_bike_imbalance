@@ -34,7 +34,8 @@
 
 		
 		d3.csv("data/Oct_Balance_Hour.csv", function(data){
-			console.log(d3.csv.parseRows(data));
+			var dataset2 = d3.csv.parseRows(data);
+			console.log(dataset2);
 		});
 		
 
