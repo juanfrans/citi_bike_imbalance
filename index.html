@@ -25,11 +25,7 @@
 
 		var dataset;
 
-		d3.csv("data/Oct_Balance_Hour.csv", function(data){
-			dataset = data;
-			var test_map = d3.map.values(dataset);
-			console.log(test_map);
-		});
+
 
 
 
@@ -44,9 +40,9 @@
 		*/
 
 
-		/*d3.csv("data/Oct_Balance_Hour.csv", function(data){
-			//console.log(data);
+		d3.csv("data/Oct_Balance_Hour.csv", function(data){
 			dataset = data;
+			console.log(dataset);
 
 			d3.select("body").selectAll("p")
 				.data(dataset)
@@ -55,7 +51,7 @@
 				.text(function(d){
 					return "Citi Bike Station: " + d["name"];
 				});
-		});*/
+		});
 
 
 
