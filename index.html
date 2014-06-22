@@ -33,6 +33,8 @@
 		<script type="text/javascript">
 
 		var dataset;
+		var w = 500;
+		var h = 50;
 
 
 
@@ -53,7 +55,7 @@
 			dataset = data;
 			console.log(dataset);
 
-			d3.select("body").selectAll("div")
+			/*d3.select("body").selectAll("div")
 				.data(dataset)
 				.enter()
 				.append("div")
@@ -61,6 +63,30 @@
 				.style("background-color", function(d){
 					var color = Math.abs(d["AM_PK"]);
 					return "rgb("+color+" , 100, 100)";
+				});*/
+
+			var svg = d3.select("body")
+				.append("svg")
+				.attr("width", w)
+				.attr("height", h);
+
+			var circles = svg.selectAll("cricles")
+				.data(dataset)
+				.enter()
+				.append("circle");
+
+			circles.attr("cx", function(d,i){
+				return (i*50) + 25;
+				})
+				.attr("cy", h/2)
+				.attr("r", function(d){
+					return d["PM_PK"];
+				})
+				.attr("fill", "yellow")
+				.attr("stroke", "orange")
+				.attr("stroke-width", function(d){
+					var st = d["AM_PK"]/10;
+					return st;
 				});
 		});
 
