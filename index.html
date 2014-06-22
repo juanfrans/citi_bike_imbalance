@@ -34,7 +34,7 @@
 
 		d3.text("data/Oct_Balance_Hour.csv", function(data){
 			dataset = d3.csv.parseRows(data);
-			console.log(dataset[10][10]);
+			console.log(Math.abs(dataset[10][10]);
 
 			var svg = d3.select("body")
 				.append("svg")
