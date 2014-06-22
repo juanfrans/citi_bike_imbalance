@@ -59,7 +59,8 @@
 			var svg = d3.select("body")
 				.append("svg")
 				.attr("width", w)
-				.attr("height", h);
+				.attr("height", h)
+				.attr("fill", "rgb(51,51,51)");
 
 			var rectangles = svg.selectAll("rect")
 				.data(dataset)
