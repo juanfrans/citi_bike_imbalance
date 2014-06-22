@@ -28,13 +28,15 @@
 		d3.csv("data/Oct_Balance_Hour.csv", function(data){
 			console.log(data);
 			dataset = data;
+
+			d3.select("body").selectAll("p")
+				.data(dataset)
+				.enter()
+				.append("p")
+				.text("New paragrph");
 		});
 
-		d3.select("body").selectAll("p")
-			.data(dataset)
-			.enter()
-			.append("p")
-			.text("New paragrph");
+
 
 
 
