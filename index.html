@@ -26,11 +26,20 @@
 		var dataset;
 
 		d3.csv("data/Oct_Balance_Hour.csv", function(data){
+			dataset = data;
+		});
+
+		var keys = d3.keys(dataset);
+
+
+		/*
+		d3.csv("data/Oct_Balance_Hour.csv", function(data){
 			dataset = data.map(function(d){
 				return [d["name"], +d["latitude"], +d["longitude"]];
 			})
 			console.log(dataset[0]);
 		});
+		*/
 
 
 		/*d3.csv("data/Oct_Balance_Hour.csv", function(data){
