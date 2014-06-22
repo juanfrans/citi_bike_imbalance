@@ -33,8 +33,8 @@
 		<script type="text/javascript">
 
 		var dataset;
-		var w = 1000;
-		var h = 500;
+		var w = 670;
+		var h = 1100;
 
 
 
@@ -70,24 +70,27 @@
 				.attr("width", w)
 				.attr("height", h);
 
-			var circles = svg.selectAll("cricles")
+			var rectangles = svg.selectAll("rect")
 				.data(dataset)
 				.enter()
-				.append("circle");
+				.append("rect");
 
-			circles.attr("cx", function(d,i){
-				return (i*50) + 25;
+			var color_scale = d3.scale.linear()
+				.domain([0, 200])
+				.range([0.05, 1]);
+
+			circles.attr("y", function(d,i){
+				return 25+i*3-0.5;
 				})
-				.attr("cy", h/2)
-				.attr("r", function(d){
-					var rad = d["PM_PK"]/10;
-					return rad;
+				.attr("x", 60+25)
+				.attr("width", 24)
+				.attr("heigh", 2)
+				.attr("fill", function(d){
+					var hour_value = d["6_AM"];
+					if (hour_value > 0){
+						return ("hsla(180, 100%, 100%,"+ color_scale(hour_value)+")")
+					};
 				})
-				.attr("fill", "yellow")
-				.attr("stroke", "orange")
-				.attr("stroke-width", function(d){
-					var st = d["AM_PK"]/10;
-					return st;
 				});
 		});
 
