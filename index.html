@@ -34,7 +34,7 @@
 
 		d3.text("data/Oct_Balance_Hour.csv", function(data){
 			dataset = d3.csv.parseRows(data);
-			console.log(dataset);
+			console.log(dataset[10][10]);
 
 			var svg = d3.select("body")
 				.append("svg")
@@ -64,7 +64,7 @@
 						.attr("height", 2)
 
 						.attr("opacity", function(dataset){
-							var hour_value = Math.abs(+dataset[i][j]);
+							var hour_value = Math.abs(dataset[i][j]);
 							return color_scale(hour_value);
 						})
 
