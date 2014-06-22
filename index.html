@@ -16,10 +16,33 @@
 		<h2>Test</h2>
 		<p>This is a project we are currently working on at the <a href="spatialinformationdesignlab.org"> Spatial Information Design Lab</a>.</p>
 
+
+
+
+
+
 		<script type="text/javascript">
+
+		var dataset;
+
 		d3.csv("data/Oct_Balance_Hour.csv", function(data){
 			console.log(data);
+			dataset = data;
 		});
+
+		d3.select("body").selectAll("p")
+			.data(dataset)
+			.enter()
+			.append("p")
+			.text("New paragrph");
+
+
+
+
+
+
+
+
 		</script>
 		<svg width="50" height="50">
 			<circle cx="25" cy="25" r="22" fill="blue" stroke="gray" stroke-width="2"/>
