@@ -50,7 +50,7 @@
 				.domain([0, 200])
 				.range([0.05, 1]);
 
-			rectangles.attr("y", function(d,i){
+			rectangles.attr("y", function(d,i+1){
 				return 25+i*3-0.5;
 				})
 				.attr("x", 60+25)
@@ -78,7 +78,7 @@
 					return d[0];
 				})
 				.attr("x", 45)
-				.attr("y", function(d,i){
+				.attr("y", function(d,i+1){
 					return 25+i*3-0.5;
 				})
 				.attr("fill", "rgb(153,153,153)")
