@@ -11,8 +11,8 @@
 		<style type="text/css">
 			div.bar{
 				display: inline-block;
-				width: 3px;
-				height:10px;
+				width:5px;
+				height:5px;
 				background-color:teal;
 				margin-right: 1px;
 			}
@@ -58,9 +58,9 @@
 				.enter()
 				.append("div")
 				.attr("class", "bar")
-				.style("height", function(d){
-					var barHeight = Math.abs(d["AM_PK"]);
-					return barHeight + "px";
+				.style("background-color", function(d){
+					var color = Math.abs(d["AM_PK"]);
+					return "rgb(255, 100, 100, " + color + ")";
 				});
 		});
 
