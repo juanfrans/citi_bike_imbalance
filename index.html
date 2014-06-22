@@ -27,10 +27,11 @@
 
 		d3.csv("data/Oct_Balance_Hour.csv", function(data){
 			dataset = data;
+			var test_keys = d3.keys(dataset);
+			console.log(test_keys);
 		});
 
-		var test_keys = d3.keys(dataset);
-		console.log(test_keys);
+
 
 
 		/*
