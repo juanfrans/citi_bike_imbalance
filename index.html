@@ -60,7 +60,8 @@
 				.attr("class", "bar")
 				.style("height", function(d){
 					var barHeight = d["AM_PK"];
-					return abs(barHeight) + "px";
+					var barHeight2 = abs(barHeight);
+					return barHeight2 + "px";
 				});
 		});
 
