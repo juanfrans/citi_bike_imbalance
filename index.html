@@ -23,6 +23,10 @@
 
 		<script type="text/javascript">
 
+		d3.csv.parse("data/Oct_Balance_Hour.csv", function(data){
+			console.log(data);
+		})
+
 		var dataset;
 
 		d3.csv("data/Oct_Balance_Hour.csv", function(data){
