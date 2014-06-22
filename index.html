@@ -26,23 +26,15 @@
 		var dataset;
 		var w = 670;
 		var h = 1100;
-
-
-
-
-
-
 		
-		d3.text("data/Oct_Balance_Hour.csv", function(data){
+		/*d3.text("data/Oct_Balance_Hour.csv", function(data){
 			var dataset2 = d3.csv.parseRows(data);
 			console.log(dataset2);
-		});
-		
+		});*/
 
-
-		d3.csv("data/Oct_Balance_Hour.csv", function(data){
-			dataset = data;
-			//console.log(dataset);
+		d3.text("data/Oct_Balance_Hour.csv", function(data){
+			dataset = d3.csv.parseRows(data);
+			console.log(dataset);
 
 			var svg = d3.select("body")
 				.append("svg")
@@ -65,7 +57,7 @@
 				.attr("width", 24)
 				.attr("height", 2)
 				.attr("opacity", function(d){
-					var hour_value = Math.abs(d["AM_6"]);
+					var hour_value = Math.abs(d[10]);
 					return color_scale(hour_value);
 				})
 				.attr("fill", function(d){
@@ -83,7 +75,7 @@
 				.enter()
 				.append("text")
 				.text(function(d){
-					return d["name"];
+					return d[0];
 				})
 				.attr("x", 45)
 				.attr("y", function(d,i){
