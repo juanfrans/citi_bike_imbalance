@@ -8,15 +8,6 @@
 		<title>Citi Bike Imbalance</title>
 		<script type="text/javascript" src="d3/d3.v3.js"></script>
 		<link rel="stylesheet" type="text/css" href="style.css">
-		<style type="text/css">
-			div.bar{
-				display: inline-block;
-				width:5px;
-				height:5px;
-				background-color:teal;
-				margin-right: 1px;
-			}
-		</style>
 	</head>
 	<body>
 		<h1>Citi Bike Imbalances</h1>
@@ -79,7 +70,7 @@
 				.domain([0, 200])
 				.range([0.05, 1]);
 
-			circles.attr("y", function(d,i){
+			rectangles.attr("y", function(d,i){
 				return 25+i*3-0.5;
 				})
 				.attr("x", 60+25)
