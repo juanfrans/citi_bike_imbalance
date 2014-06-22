@@ -8,6 +8,14 @@
 		<title>Citi Bike Imbalance</title>
 		<script type="text/javascript" src="d3/d3.v3.js"></script>
 		<link rel="stylesheet" type="text/css" href="style.css">
+		<style type="text/css">
+			div.bar{
+				display: inline-block;
+				width: 20px;
+				height:10px;
+				background-color:teal;
+			}
+		</style>
 	</head>
 	<body>
 		<h1>Citi Bike Imbalances</h1>
@@ -44,10 +52,19 @@
 			dataset = data;
 			console.log(dataset);
 
+
+
+
+
 			d3.select("body").selectAll("p")
 				.data(dataset)
 				.enter()
-				.append("p")
+				.append("div")
+				.attr("class", "bar")
+				.style("height", function(d["AM_PK"]){
+					var barHeight = abs(d);
+					return barHeight + "px";
+				});
 				.text(function(d){
 					return "Citi Bike Station: " + d["name"];
 				});
