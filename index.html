@@ -82,8 +82,7 @@
 				.attr("fill", function(d){
 					var hour_value = d["AM_6"];
 					if (hour_value > 0){
-						var color = "hsl(180, 100%, 100%)";
-						return d3.rgb(color)
+						return d3.rgb(hsl(180, 100%, 100%))
 					}
 					else{
 						return ("hsl(24, 100%, 100%)")
