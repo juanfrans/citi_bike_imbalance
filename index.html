@@ -17,10 +17,6 @@
 		<p>This is a project we are currently working on at the <a href="http://spatialinformationdesignlab.org"> Spatial Information Design Lab</a>.</p>
 
 
-
-
-
-
 		<script type="text/javascript">
 
 		var dataset;
@@ -54,20 +50,14 @@
 				for (var j = 3; j < 27; j++) {		
 					rectangles
 						.attr("y", 25+i*3-0.5)
-
 						.attr("x", 60+25*j)
-
 						.attr("width", 24)
-
 						.attr("height", 2)
-
 						.attr("fill", "rgb(153,153,153")
-
 						.attr("opacity", function(d){
 							var hour_value = Math.abs(dataset[i][j]);
 							return color_scale(hour_value);
 						})
-
 						.attr("fill", function(d){
 							var hour_value = dataset[i][j];
 							if (hour_value > 0){
