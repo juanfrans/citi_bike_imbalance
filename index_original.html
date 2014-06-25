@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+
+<!-- This is a comment -->
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Citi Bike Imbalance</title>
+		<script type="text/javascript" src="d3/d3.v3.js"></script>
+		<link rel="stylesheet" type="text/css" href="style.css">
+	</head>
+	<body>
+		<h1>Citi Bike Imbalances</h1>
+		<p>This is a test for a new page for this project. This is not the official project page, just testing ground for a new D3 version of this project. To see the offical page for this project go <a href="http://juanfrans.com/CITI-BIKE-STATION-IMBALANCES">here</a> or <a href="http://spatialinformationdesignlab.org/projects.php?id=320">here</a>.</p>
+
+		<h2>Test</h2>
+		<p>This is a project we are currently working on at the <a href="http://spatialinformationdesignlab.org"> Spatial Information Design Lab</a>.</p>
+
+
+		<script type="text/javascript">
+
+		var dataset;
+		var w = 670;
+		var h = 1100;
+		
+		/*d3.text("data/Oct_Balance_Hour.csv", function(data){
+			var dataset2 = d3.csv.parseRows(data);
+			console.log(dataset2);
+		});*/
+
+		d3.text("data/Oct_Balance_Hour.csv", function(data){
+			dataset = d3.csv.parseRows(data);
+			console.log(Math.abs(dataset[1][3]));
+
+			var svg = d3.select("body")
+				.append("svg")
+				.attr("width", w)
+				.attr("height", h)
+
+			var rectangles = svg.selectAll("rect")
+				.data(dataset)
+				.enter()
+				.append("rect");
+
+			var color_scale = d3.scale.linear()
+				.domain([0, 200])
+				.range([0.05, 1]);
+
+			/*for (var i = 1; i < 331; i++) {
+				for (var j = 3; j < 27; j++) {		
+					rectangles
+						.attr("y", 25+i*3-0.5)
+						.attr("x", 60+25*j)
+						.attr("width", 24)
+						.attr("height", 2)
+						.attr("fill", "rgb(153,153,153")
+						.attr("opacity", function(d){
+							var hour_value = Math.abs(dataset[i][j]);
+							return color_scale(hour_value);
+						})
+						.attr("fill", function(d){
+							var hour_value = dataset[i][j];
+							if (hour_value > 0){
+								return "rgb(255, 102, 0)"
+							}
+							else{
+								return "rgb(0, 255, 255)"
+							};
+						})
+				}
+			};*/
+
+			rectangles.attr("y", function(d,i){
+				return 25+i*3-0.5;
+				})
+				.attr("x", 60+25)
+				.attr("width", 24)
+				.attr("height", 2)
+				.attr("opacity", function(d){
+					var hour_value = Math.abs(d[10]);
+					return color_scale(hour_value);
+				})
+				.attr("fill", function(d){
+					var hour_value = d["AM_6"];
+					if (hour_value > 0){
+						return "rgb(255, 102, 0)"
+					}
+					else{
+						return "rgb(0, 255, 255)"
+					};
+				});
+
+			svg.selectAll("text")
+				.data(dataset)
+				.enter()
+				.append("text")
+				.text(function(d){
+					return d[0];
+				})
+				.attr("x", 45)
+				.attr("y", function(d,i){
+					return 25+i*3-0.5;
+				})
+				.attr("fill", "rgb(153,153,153)")
+				.attr("font-size", "2px")
+		});
+
+
+		</script>
+	</body>
+</html>
