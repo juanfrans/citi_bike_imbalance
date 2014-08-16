@@ -63,7 +63,31 @@
                     d.total = + d.total;
                     console.log("Total = " + d.total)
                 });
-            })
+
+            x.domain(d3.extent(data, function(d) {return d.date;}));
+            y.domain(d3.extent(data, function(d) {return d.total; }));
+
+            svg.append("g")
+                .attr("class", "x axis")
+                .attr("transform", "translate(0," + heightLineChart + ")")
+                .call(xAxis);
+
+            svg.append("g")
+                .attr("class", "y axis")
+                .call(yAxis)
+                .append("text")
+                .attr("transform", "rotate(-90)")
+                .attr("y", 6)
+                .attr("dy", ".71em")
+                .style("text-anchor", "end")
+                .text("Total Rides");
+
+            svg.append("path")
+                .datum(data)
+                .attr("class", "line")
+                .attr("d", line);
+
+            });
 
 
         </script>
