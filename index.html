@@ -48,7 +48,7 @@
                 .x(function(d) { return x(d.date); })
                 .y(function(d) { return y(d.total); });
 
-            var div = d3.select("#lineChart"),
+            var div = d3.select("body"),
                 svg = div.append('svg')
                 .attr('width', widthLineChart + margin.left + margin.right)
                 .attr('height', heightLineChart + margin.top + margin.bottom)
