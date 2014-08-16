@@ -28,7 +28,7 @@
                 widthLineChart = 800 - margin.left - margin.right,
                 heightLineChart = 500 - margin.top - margin.bottom;
 
-            var parseDate = d3.time.format("%m/%d/%y").parse;
+            var parseDate = d3.time.format("%x").parse;
 
             var x = d3.time.scale()
                 .range([0, widthLineChart]);
