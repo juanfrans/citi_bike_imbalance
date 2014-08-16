@@ -48,7 +48,7 @@
                 .x(function(d) { return x(d.date); })
                 .y(function(d) { return y(d.total); });
 
-            var div = d3.select('#lineChart'),
+            var div = d3.select("#lineChart"),
                 svg = div.append('svg')
                 .attr('width', widthLineChart + margin.left + margin.right)
                 .attr('height', heightLineChart + margin.top + margin.bottom)
@@ -56,16 +56,16 @@
                 .attr("transform", "translate(" + margin.left + "," + margin.top +")");
 
             d3.csv("data/Overall_Daily_Activity.csv", function(error, data){
-                console.log("this is the data... " + data)
+                //console.log("this is the data... " + data)
                 data.forEach(function(d){
                     d.date = parseDate(d.date);
-                    console.log("Date = " + d.date);
+                    //console.log("Date = " + d.date);
                     d.total = + d.total;
-                    console.log("Total = " + d.total)
+                    //console.log("Total = " + d.total)
                 });
 
             x.domain(d3.extent(data, function(d) {return d.date;}));
-            y.domain(d3.extent(data, function(d) {return d.total; }));
+            y.domain(d3.extent(data, function(d) {return d.total;}));
 
             svg.append("g2")
                 .attr("class", "x axis")
