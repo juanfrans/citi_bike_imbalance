@@ -49,10 +49,10 @@
                 .y(function(d) { return y(d.total); });
 
             var div2 = d3.select('#lineChart'),
-                svg = div2.append('svg')
+                svg2 = div2.append('svg2')
                 .attr('width', widthLineChart + margin.left + margin.right)
                 .attr('height', heightLineChart + margin.top + margin.bottom)
-            .append("g")
+            .append("g2")
                 .attr("transform", "translate(" + margin.left + "," + margin.top +")");
 
             d3.csv("data/Overall_Daily_Activity.csv", function(error, data){
@@ -67,12 +67,12 @@
             x.domain(d3.extent(data, function(d) {return d.date;}));
             y.domain(d3.extent(data, function(d) {return d.total; }));
 
-            svg.append("g")
+            svg.append("g2")
                 .attr("class", "x axis")
                 .attr("transform", "translate(0," + heightLineChart + ")")
                 .call(xAxis);
 
-            svg.append("g")
+            svg.append("g2")
                 .attr("class", "y axis")
                 .call(yAxis)
                 .append("text")
