@@ -56,9 +56,9 @@
                 .attr("transform", "translate(" + margin.left + "," + margin.top +")");
 
             d3.csv("data/Overall_Daily_Activity.csv", function(error, data){
+                console.log("this is the data... " + data)
                 data.forEach(function(d){
                     d.date = parseDate(d.date);
-                    console.log(d.date);
                     d.total = + d.total;
                 });
             })
