@@ -55,7 +55,12 @@
             .append("g")
                 .attr("transform", "translate(" + margin.left + "," + margin.top +")");
 
-
+            d3.csv("data/Overall_Daily_Activity.csv", function(error, data){
+                data.forEach(function(d){
+                    d.date = parseDate(d.date);
+                    d.total = +d.total;
+                });
+            })
 
 
         </script>
