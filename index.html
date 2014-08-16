@@ -48,8 +48,8 @@
                 .x(function(d) { return x(d.date); })
                 .y(function(d) { return y(d.total); });
 
-            var div2 = d3.select('#lineChart'),
-                svg2 = div2.append('svg2')
+            var div = d3.select('#lineChart'),
+                svg2 = div.append('svg2')
                 .attr('width', widthLineChart + margin.left + margin.right)
                 .attr('height', heightLineChart + margin.top + margin.bottom)
             .append("g2")
