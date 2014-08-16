@@ -25,7 +25,7 @@
         <script type="text/javascript">
 
             var margin = {top:20, right:20, bottom:30, left:50},
-                widthLineChart = 800 - margin.left - margin.right,
+                width = 800 - margin.left - margin.right,
                 heightLineChart = 500 - margin.top - margin.bottom;
 
             var parseDate = d3.time.format("%d-%b-%y").parse;
@@ -34,7 +34,7 @@
                 .range([0, widthLineChart]);
 
             var y = d3.scale.linear()
-                .range([height,0]);
+                .range([heightLineChart,0]);
 
             var xAxis = d3.svg.axis()
                 .scale(x)
