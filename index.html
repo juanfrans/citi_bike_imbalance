@@ -58,7 +58,8 @@
             d3.csv("data/Overall_Daily_Activity.csv", function(error, data){
                 data.forEach(function(d){
                     d.date = parseDate(d.date);
-                    d.total = +d.total;
+                    console.log(d.date);
+                    d.total = + d.total;
                 });
             })
 
