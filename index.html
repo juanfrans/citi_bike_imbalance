@@ -23,13 +23,15 @@
 
         <div id="lineChart"></div>
         <script type="text/javascript">
+
+            var margin = {top:20, right:20, bottom:30, left:50},
+                widthLineChart = 670 - margin.left - margin.right,
+                heightLineChart = 400 - margin.top - margin.bottom;
             
             var dailyActivity = [];
 
-            var widthLineChart = 670,
-            heightLineChart = 400,
-            div = d3.select('#lineChart'),
-            svg = div.append('svg')
+            var div = d3.select('#lineChart'),
+                svg = div.append('svg')
                 .attr('width', widthLineChart)
                 .attr('height', heightLineChart)
 
