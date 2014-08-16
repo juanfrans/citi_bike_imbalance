@@ -59,7 +59,9 @@
                 console.log("this is the data... " + data)
                 data.forEach(function(d){
                     d.date = parseDate(d.date);
+                    console.log("Date = " + d.date);
                     d.total = + d.total;
+                    console.log("Total = " + d.total)
                 });
             })
 
