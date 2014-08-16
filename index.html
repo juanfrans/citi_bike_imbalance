@@ -26,18 +26,35 @@
 
             var margin = {top:20, right:20, bottom:30, left:50},
                 widthLineChart = 670 - margin.left - margin.right,
-                heightLineChart = 400 - margin.top - margin.bottom;
-            
-            var dailyActivity = [];
+                heightLineChart = 800 - margin.top - margin.bottom;
+
+            var parseDate = d3.time.format("%d-%b-%y").parse;
+
+            var x = d3.time.scale()
+                .range([0, widthLineChart]);
+
+            var y = d3.scale.linear()
+                .range([height,0]);
+
+            var xAxis = d3.svg.axis()
+                .scale(x)
+                .orient("bottom");
+
+            var yAxis = d3.svg.axis()
+                .scale(y)
+                .orient("left")
+
+            var line = d3.svg.line()
+                .x(function(d) { return x(d.date); })
+                .y(function(d) { return y(d.total); });
 
             var div = d3.select('#lineChart'),
                 svg = div.append('svg')
-                .attr('width', widthLineChart)
-                .attr('height', heightLineChart)
+                .attr('width', widthLineChart + margin.left + margin.right)
+                .attr('height', heightLineChart + margin.top + margin.bottom)
+            .append("g")
+                .attr("transform", "translate(" + margin.left + "," + margin.top +")");
 
-            d3.text("data/Overall_Daily_Activity.csv", function(dailyData){
-
-            });
 
 
 
