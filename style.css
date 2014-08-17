@@ -15,11 +15,13 @@ p {
 }
 
 .x.axis path{
-	display: none;
+	fill: none;
+	stroke: rgb(153,153,153);
+	shape-rendering: crispEdges;
 }
 
 .line{
 	fill: none;
-	stroke: steelblue;
+	stroke: rgb(255, 102, 0);
 	stroke-width: 1.5px;
 }
