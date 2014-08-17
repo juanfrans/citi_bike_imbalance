@@ -21,7 +21,7 @@
 		<p>This is a project we are currently working on at the <a href="http://spatialinformationdesignlab.org"> Spatial Information Design Lab</a>.</p>
 
 
-        <div id="lineChart"></div>
+        <div id="lineChart">
         <script type="text/javascript">
 
             var margin = {top:20, right:20, bottom:30, left:50},
@@ -48,8 +48,8 @@
                 .x(function(d) { return x(d.date); })
                 .y(function(d) { return y(d.total); });
 
-            var divLineChart = d3.select("#lineChart"),
-                svg = divLineChart.append('svg')
+            var div = d3.select("#lineChart"),
+                svg = div.append('svg')
                 .attr('width', widthLineChart + margin.left + margin.right)
                 .attr('height', heightLineChart + margin.top + margin.bottom)
                 .append("g2")
@@ -91,6 +91,7 @@
 
 
         </script>
+        </div>
 
 
         <div id="chart"></div>
