@@ -10,7 +10,7 @@ p {
 .axis path,
 .axis line{
 	fill: none;
-	stroke: #000;
+	stroke: rgb(153,153,153);
 	shape-rendering: crispEdges;
 }
 
