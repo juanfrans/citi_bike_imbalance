@@ -52,7 +52,7 @@
                 svg = div.append('svg')
                 .attr('width', widthLineChart + margin.left + margin.right)
                 .attr('height', heightLineChart + margin.top + margin.bottom)
-                .append("g2")
+                .append("g")
                 .attr("transform", "translate(" + margin.left + "," + margin.top +")");
 
             d3.csv("data/Overall_Daily_Activity.csv", function(error, data){
