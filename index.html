@@ -21,7 +21,7 @@
 		<p>This is a project we are currently working on at the <a href="http://spatialinformationdesignlab.org"> Spatial Information Design Lab</a>.</p>
 
 
-        <div id="lineChart"> here is where it's supposed to go...
+        <div id="lineChart"></div>
         <script type="text/javascript">
 
             var margin = {top:20, right:20, bottom:30, left:50},
@@ -48,8 +48,8 @@
                 .x(function(d) { return x(d.date); })
                 .y(function(d) { return y(d.total); });
 
-            var div = d3.select("#lineChart"),
-                svg = div.append('svg')
+            var lineChartDiv = d3.select("#lineChart"),
+                lineChartSVG = lineChartDiv.append('svg')
                 .attr('width', widthLineChart + margin.left + margin.right)
                 .attr('height', heightLineChart + margin.top + margin.bottom)
                 .append("g2")
@@ -67,12 +67,12 @@
             x.domain(d3.extent(data, function(d) {return d.date;}));
             y.domain(d3.extent(data, function(d) {return d.total;}));
 
-            svg.append("g2")
+            lineChartSVG.append("g2")
                 .attr("class", "x axis")
                 .attr("transform", "translate(0," + heightLineChart + ")")
                 .call(xAxis);
 
-            svg.append("g2")
+            lineChartSVG.append("g2")
                 .attr("class", "y axis")
                 .call(yAxis)
                 .append("text")
@@ -82,7 +82,7 @@
                 .style("text-anchor", "end")
                 .text("Total Rides");
 
-            svg.append("path")
+            lineChartSVG.append("path")
                 .datum(data)
                 .attr("class", "line")
                 .attr("d", line);
@@ -91,7 +91,6 @@
 
 
         </script>
-        </div>
 
 
         <div id="chart"></div>
