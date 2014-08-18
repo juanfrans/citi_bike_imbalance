@@ -49,7 +49,7 @@
                 .y(function(d) { return y(d.total); });
 
             var lineChartDiv = d3.select("#lineChart"),
-                svg = lineChartDiv.append('svg')
+                lineChartSVG = lineChartDiv.append('svg')
                 .attr('width', widthLineChart + margin.left + margin.right)
                 .attr('height', heightLineChart + margin.top + margin.bottom)
                 .append("g")
@@ -67,12 +67,12 @@
             x.domain(d3.extent(data, function(d) {return d.date;}));
             y.domain(d3.extent(data, function(d) {return d.total;}));
 
-            svg.append("g")
+            lineChartSVG.append("g")
                 .attr("class", "x axis")
                 .attr("transform", "translate(0," + heightLineChart + ")")
                 .call(xAxis);
 
-            svg.append("g")
+            lineChartSVG.append("g")
                 .attr("class", "y axis")
                 .call(yAxis)
                 .append("text")
@@ -82,7 +82,7 @@
                 .style("text-anchor", "end")
                 .text("Total Rides");
 
-            svg.append("path")
+            lineChartSVG.append("path")
                 .datum(data)
                 .attr("class", "line")
                 .attr("d", line);
